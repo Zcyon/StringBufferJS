@@ -1,0 +1,51 @@
+<html>
+
+  <head>
+    <script type="text/javascript" src="StringBuffer.js"></script>
+    <script type="text/javascript" src="Stopwatch.js"></script>
+  </head>
+  
+  <body>
+    
+    <script type="text/javascript">
+  
+    /*
+      Test #1
+    */
+      var sw = new Stopwatch();
+      var stringbuffer = new StringBuffer();
+      var init_time;
+      var end_time;
+      
+      init_time = new Date();
+      init_time = init_time.getTime();
+      sw.start();
+        for (var i = 0; i < 100000; i++) {
+          stringbuffer.append('12345678901234567890');
+        }
+      end_time = new Date();
+      end_time = end_time.getTime();
+      sw.stop();
+    
+      console.log('Elapsed time: ' + (end_time - init_time));
+      console.log('Elapsed time: ' + sw.getElapsedTime());
+
+    /*
+      Test #2
+    */
+      var string = '';
+      init_time = new Date();
+      init_time = init_time.getTime();
+      sw.restart();  
+        for (var i = 0; i < 100000; i++) {
+          string += '12345678901234567890';
+        }
+      end_time = new Date();
+      end_time = end_time.getTime();
+      sw.stop();
+      console.log('Elapsed time: ' + (end_time - init_time));
+      console.log('Elapsed time: ' + sw.getElapsedTime());
+    </script>
+  </body>
+  
+</html>
